@@ -1,0 +1,130 @@
+﻿@{
+    Layout = "";
+}
+
+<!doctype html>
+<html lang="pt-br">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>SuperMarket - Sistema para Supermercado</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="~/css/frente-caixa.css" rel="stylesheet">
+        <!-- Crregamento Jquery-->
+        <script src="~/vendor/jquery/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <div>
+            <div id="topbar">
+                <b>SuperMarket</b>
+            </div>
+        </div>
+        <div class="container">
+            <hr>
+            <div class="row">
+                <div class="col-sm-4">
+
+                    <h2>Produto:</h2>
+
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="codProduto" placeholder="Código..">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-success" id="pesquisar">Pesquisar</button>
+                        </span>
+                    </div>
+                    <br>
+                    <h3> Informações</h3>
+                    <hr>
+                    <form class="form-horizontal" id="formularioDeProduto">
+                        <label>Nome</label>
+                        <input id="campoNome" class="form-control" type="text" disabled required>
+                        <label>Categoria</label>
+                        <input id="campoCategoria" class="form-control" type="text" disabled required>
+                        <label>Fornecedor</label>
+                        <input id="campoFornecedor" class="form-control" type="text" disabled required>
+                        <label>Preço de venda</label>
+                        <input id="campoPrecoDeVenda" class="form-control" type="number" step="any" disabled required>
+                        <label>Quantidade</label>
+                        <input id="campoQuantidade" class="form-control" type="number" step="any"  min="1" required>
+                        <br>
+                        <button class="btn btn-success "> Confirmar</button>
+                    </form>
+                </div>
+                <div class="col-sm-8">
+                    <h3>Compra</h3>
+                    <hr>
+                    <div id="table-scroll">
+                        <table id="tabelaCompra" class="table table-striped table-bordered" >
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nome</th>
+                                    <th>Qtd</th>
+                                    <th>Preço</th>
+                                    <th>Un. de Medida</th>
+                                    <th>Total</th>
+                                    <th>Remover</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>    
+            <hr>
+            <div class="row">
+                <hr>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <button type="button" class="btn btn-success " data-toggle="modal" data-target="#myModal"> Finalizar Compra </button>
+                    <button type="button" class="btn btn-danger "  >Cancelar compra</button>
+                </div>
+                <div class="col-sm-4"></div> 
+            </div>
+            <hr>
+        </div> 
+        <!-- The Modal -->
+        <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Finalizar venda</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h2>Total: R$ <span id="totalVenda">65.90</span> </h2>
+                <hr>
+                <p>Valor pago:</p>
+                <input type="number" placeholder="12.76" class="form-control" id="valorPago">
+                <p>Troco:</p>
+                <input type="number" placeholder="12.76" disabled class="form-control">  
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <div class="posvenda">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                </div>
+                <div class="prevenda">
+                    <button type="button" class="btn btn-success" id="btnFinalizarVenda">Finalizar venda</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+
+            </div>
+        </div>
+        </div>
+    </body>
+    <script src="~/js/frente-caixa.js"></script>
+</html>
